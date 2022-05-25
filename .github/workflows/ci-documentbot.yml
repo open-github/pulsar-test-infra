@@ -35,7 +35,6 @@ on:
 
 jobs:
   labeling:
-    if: ${{ github.repository == 'open-github/pulsar-test-infa' }}
     permissions:
       pull-requests: write 
     runs-on: ubuntu-latest
