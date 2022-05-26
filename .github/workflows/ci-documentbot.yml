@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: github.com/open-github/pulsar-test-infra
+          repository: open-github/pulsar-test-infra
           ref: dev-docbot
 
       - name: Set up Go
