@@ -17,22 +17,14 @@
 # under the License.
 #
 
-name: Auto Labeling
+name: Documentation Bot
 
 on:
-  pull_request_target :
+  pull_request_target:
     types:
       - opened
       - edited
       - labeled
-
-  
-
-# A GitHub token created for a PR coming from a fork doesn't have
-# 'admin' or 'write' permission (which is required to add labels)
-# To avoid this issue, you can use the `scheduled` event and run
-# this action on a certain interval.And check the label about the
-# document.
 
 jobs:
   labeling:
@@ -42,7 +34,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: open-github/pulsar-test-infra/doc-label-check@develop
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - uses: open-github/pulsar-test-infra/doc-label-check@dev-docbot
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           label-pattern: '- \[(.*?)\] ?`(.+?)`' # matches '- [x] `label`'
