@@ -32,12 +32,16 @@ jobs:
       pull-requests: write 
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout action
+        uses: actions/checkout@v3
+        with:
+          repository: maxsxu/action-labeler
+          ref: master
+
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version: 1.18
-
-      - run: id && pwd && ls -al ../ && ls -al && find / -name 'labeler*'
 
       - name: Labeling
         uses: maxsxu/action-labeler@master
