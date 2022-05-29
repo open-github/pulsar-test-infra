@@ -48,4 +48,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LABEL_PATTERN: '- \[(.*?)\] ?`(.+?)`' # matches '- [x] `label`'
-          LABEL_WATCH_LIST: 'doc,doc-required,doc-not-needed,doc-complete,doc-label-missing'
+          LABEL_WATCH_LIST: 'doc,doc-required,doc-not-needed,doc-complete,doc-label-missing,test-required'
