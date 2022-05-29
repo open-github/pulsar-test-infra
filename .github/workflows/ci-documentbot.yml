@@ -37,9 +37,10 @@ jobs:
         with:
           go-version: 1.18
 
+      - run: pwd && ls -al
+
       - name: Labeling
         uses: maxsxu/action-labeler@master
-        run: pwd && ls -al
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LABEL_PATTERN: '- \[(.*?)\] ?`(.+?)`' # matches '- [x] `label`'
