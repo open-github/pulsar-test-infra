@@ -27,22 +27,18 @@ on:
       - labeled
 
 jobs:
-  labeling:
+  label:
     permissions:
       pull-requests: write 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: open-github/pulsar-test-infra
-          ref: dev-docbot
-
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version: 1.18
 
-      - uses: open-github/pulsar-test-infra/docbot@dev-docbot
+      - name: Labeling
+        uses: maxsxu@action-labeler@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LABEL_PATTERN: '- \[(.*?)\] ?`(.+?)`' # matches '- [x] `label`'
